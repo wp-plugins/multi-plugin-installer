@@ -19,6 +19,8 @@ Multi Plugin Installer also allows you to export the mpi file and import it on a
 
 Multi Plugin Installer allows you to take a backup of all the plugins and install it on another wordpress installation in one go. 
 
+Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
+
 
 
 =Features  =
@@ -30,6 +32,8 @@ Multi Plugin Installer also allows you to export the mpi file and import it on a
 
 Multi Plugin Installer allows you to take a backup of all the plugins and install it on another wordpress installation in one go. 
 
+Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
+
 
 == Installation ==
     Upload the plugin folder to the /wp-content/plugins/ folder of your wordpress installation.
@@ -38,13 +42,13 @@ Multi Plugin Installer allows you to take a backup of all the plugins and instal
     Click on it to set the options
     Get going…..
 
+Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
 
 
 == Frequently asked questions ==
 
 = A question that someone might have =
-
-An answer to that question.
+Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
 
 == Screenshots ==
 
