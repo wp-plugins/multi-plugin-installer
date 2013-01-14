@@ -1,0 +1,24 @@
+/*-- MPI STYLE
+-----------------------------------------------------------------*/
+.mpiicon{background:url('../images/plugin_icon.png') no-repeat;}
+#mpiblock{width:600px;}
+#mpiblock .mpi_button{ font-size: 20px !important;font-weight: normal;height: 40px; width: 250px;float:right; margin-top: -8px;background: none repeat scroll 0 0 #21759B;} 
+#mpiblock .mpi_left{float:left;}
+#mpiblock .mpi_clear{clear:both;}
+#mpiblock .mpi_error{background: none repeat scroll 0 0 #9B0707;border-radius: 2px 2px 2px 2px; color: #FFFFFF; margin-top: 10px; padding: 5px;} #mpiblock .postbox{margin-bottom:10px;padding-bottom: 5px;}
+#mpi-expand,#mpi-collapse{outline:none;}
+#mpiblock p.found {background: url("../images/found.gif") no-repeat scroll 0 0 transparent;color: #278412; font-size: 12px; height: 24px; padding-left: 30px; padding-top: 3px;}
+#mpiblock p.not-found{background: url("../images/not-found.png") no-repeat scroll 0 0 transparent;color: #B20C0C; font-size: 12px; height: 23px; padding-left: 30px; padding-top: 3px;}
+#mpiblock #icon-mpinstaller{display:none;}
+#mpiblock .mpi_h3{border-bottom: 1px solid; color: #845E06; font-size: 18px; margin-bottom: 20px; margin-top: 50px; padding-bottom: 5px; text-transform: capitalize;}
+#mpiblock h2{display:none;}
+#mpiblock .mpi_act{color: #278412;}
+#mpiblock h3.hndle span{color: #604A05;}
+#mpiblock table.mpi_files {text-align:center;font-family: verdana,arial,sans-serif; font-size:11px; color:#333333; border-width: 1px; border-color: #666666; border-collapse: collapse; width: 100%; }
+#mpiblock table.mpi_files th {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #dedede; }
+#mpiblock table.mpi_files td {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #ffffff; }
+#mpiblock a.mpi_filedwn{background: url("../images/download.png") no-repeat scroll 0 0 transparent;}
+#mpiblock a.mpi_trashdwn{background: url("../images/trash.png") no-repeat scroll 0 0 transparent;position: relative;top: -1px;}
+#mpiblock a.expfile{display: block; height: 23px; margin: 0 auto; outline: medium none; width: 24px;}
+#mpiblock a.mpi_plugbkup{background: url("../images/backup.png") no-repeat scroll 0 0 transparent;color: #677F11; display: block; font-size: 13px; font-weight: bold; height: 32px; line-height: 34px; margin-bottom: 20px; outline: medium none; padding-left: 35px; text-decoration: none;}
+#mpiblock .mpi_iframe{left: 790px;position: fixed;top: 105px;}
