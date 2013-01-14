@@ -12,7 +12,7 @@ Multi Plugin Installer is provided with capability of installing multiple plugin
 
 == Description ==
 
-==Features ==
+== Features ==
 
 == Installation ==
 Upload the multi-plugin-installer folder to your wp-plugins directory.
