@@ -8,9 +8,10 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Multi Plugin Installer is provided with capability of installing multiple plugins at a time either form direct WordPress Plugins Directory or form local machine. It also has capabilities like taking all plugins backup, importing them and exporting them.
+This plugin can install multi plugins at once click.
 
 == Description ==
+Multi Plugin Installer is provided with capability of installing multiple plugins at a time either form direct WordPress Plugins Directory or form local machine. It also has capabilities like taking all plugins backup, importing them and exporting them.
 
 == Features ==
 
