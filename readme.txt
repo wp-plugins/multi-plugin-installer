@@ -51,7 +51,7 @@ Click here to know more about how to use the plugin <a href="http://www.wpfruits
 Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
 
 == Screenshots ==
-
+1. The settings page.
 
 
 == Changelog ==
