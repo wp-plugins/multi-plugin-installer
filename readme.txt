@@ -2,7 +2,7 @@
 Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: bulk plugin installer, multiple plugin installer, plugin centra, export plugins, import plugins
-Requires at least: 2.8
+Requires at least: 3.0
 Tested up to: 3.5
 Stable tag: 1.0.0
 License: GPLv2 or later
