@@ -40,7 +40,7 @@ Click here to know more about how to use the plugin <a href="http://www.wpfruits
     Activate the plugin. 
     You will see an option at the left bottom of the WordPress options in the left sidebar.
     Click on it to set the options
-    Get going…..
+    Get going…
 
 Click here to know more about how to use the plugin <a href="http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/">http://www.wpfruits.com/downloads/wp-plugins/multi-plugin-installer/</a>
 
