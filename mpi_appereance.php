@@ -55,7 +55,7 @@ $mpiObj = new mpinstaller();
 				<h3 class="hndle"><span><?php _e('Install Plugins Directly From Your Local Machine :','mpi'); ?></span></h3>
 				<div class="inside">
 					<br/>
-					<form onsubmit="return valid_zipfile('mpi_locFiles');" name="form_uppcs" method="post" action="<?php echo $action_url; ?>" enctype="multipart/form-data">
+					<form onsubmit="return valid_zipfile('mpi_locFiles');" name="form_uppcs" method="post" action="" enctype="multipart/form-data">
 						<?php wp_nonce_field($mpiObj->key); ?>
 						<div>					
 							<input type="file" class="mpi_left" name="mpi_locFiles[]" id="mpi_locFiles" multiple="multiple" size="40" />
@@ -82,7 +82,7 @@ $mpiObj = new mpinstaller();
 				<h3 class="hndle"><span><?php _e('Import MPI (.mpi) File To Install & Activate The Plugins :','mpi'); ?></span></h3>
 				<div class="inside">
 					<br/>
-					<form onsubmit="return valid_extension();" name="form_expImp" method="post" action="<?php echo $action_url; ?>" enctype="multipart/form-data">
+					<form onsubmit="return valid_extension();" name="form_expImp" method="post" action="" enctype="multipart/form-data">
 						<?php wp_nonce_field($mpiObj->key); ?>
 						<div>					
 							<input class="mpi_left" type="file" name="mpi_expfileUp" size="40" />
@@ -134,7 +134,7 @@ $mpiObj = new mpinstaller();
 				<div class="inside">
 					<br/>
 					<span class="max-upload-size"><?php $mpiObj->mpi_getWP_maxupload_filesize(); ?></span>
-					<form onsubmit="return valid_zipfile('mpi_upbackup');" name="form_bkupl" method="post" action="<?php echo $action_url; ?>" enctype="multipart/form-data">
+					<form onsubmit="return valid_zipfile('mpi_upbackup');" name="form_bkupl" method="post" action="" enctype="multipart/form-data">
 						<?php wp_nonce_field($mpiObj->key); ?>
 						<div>					
 							<input type="file" class="mpi_left" name="mpi_upbackup" id="mpi_upbackup" size="40" />

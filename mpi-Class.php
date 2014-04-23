@@ -4,10 +4,6 @@ class mpinstaller
     var $plugin_url;
     var $key;
     
-    function mpinstaller(){
-        $this->__construct();
-    }
-    
     function __construct(){
         $this->plugin_url = trailingslashit(get_bloginfo('wpurl')) . PLUGINDIR . '/' . dirname(plugin_basename(__FILE__));
         $this->key = 'mpinstaller';
@@ -79,6 +75,7 @@ class mpinstaller
 	function mpi_create_file($plugins_arr,$mpi_cfilenm)
 	{
 		if($plugins_arr){
+				$mpi_filetxt = "";
 			foreach($plugins_arr as $mpi_plugin){
 				$mpi_filetxt .= $mpi_plugin.",";
 			}
@@ -109,7 +106,10 @@ class mpinstaller
         foreach ($plugins_arr as $val){
             $val = trim($val);
             
-            if (end(explode(".", $val)) == 'zip'){
+			$tmp = explode('.', $val);
+			$file_extension = end($tmp);
+			
+            if ($file_extension == 'zip'){
                $this->mpi_plugin_handle_download("temp",$val,$mpi_action,$whform);
             }
             else {
@@ -122,6 +122,7 @@ class mpinstaller
         
         if ($send) 
         {
+			$to_send = new stdClass();
             $to_send->plugins = $plugins;
             
             $send = serialize($to_send);
@@ -322,7 +323,7 @@ class mpinstaller
 				$mpi_filenm = str_replace($mpi_filesDir, "",$filename);
 				$mpi_backupfilenm = str_replace($mpi_filesDir, "",$mpi_filenm);
 				$mpi_timedate = explode("_",$mpi_backupfilenm);
-				$mpi_timedate = str_replace('.zip', "",$mpi_timedate[1]);
+				$mpi_timedate = str_replace('.mpi', "",$mpi_timedate[1]);
 				$mpi_timedate = date("m-d-Y , H:i:s", $mpi_timedate);
 				?>
 					<tr>

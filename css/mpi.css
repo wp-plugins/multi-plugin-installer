@@ -2,6 +2,7 @@
 -----------------------------------------------------------------*/
 .mpiicon{background:url('../images/plugin_icon.png') no-repeat;}
 #mpiblock{width:600px;}
+#mpiblock .mpi-meta-box {min-width:600px;}
 #mpiblock .mpi_button{ font-size: 20px !important;font-weight: normal;height: 40px; width: 250px;float:right; margin-top: -8px;background: none repeat scroll 0 0 #21759B;} 
 #mpiblock .mpi_left{float:left;}
 #mpiblock .mpi_clear{clear:both;}
@@ -21,4 +22,4 @@
 #mpiblock a.mpi_trashdwn{background: url("../images/trash.png") no-repeat scroll 0 0 transparent;position: relative;top: -1px;}
 #mpiblock a.expfile{display: block; height: 23px; margin: 0 auto; outline: medium none; width: 24px;}
 #mpiblock a.mpi_plugbkup{background: url("../images/backup.png") no-repeat scroll 0 0 transparent;color: #677F11; display: block; font-size: 13px; font-weight: bold; height: 32px; line-height: 34px; margin-bottom: 20px; outline: medium none; padding-left: 35px; text-decoration: none;}
-#mpiblock .mpi_iframe{left: 790px;position: fixed;top: 105px;}
+#mpiblock .mpi_iframe{left: 790px; line-height: 0; position: fixed; top: 113px;}

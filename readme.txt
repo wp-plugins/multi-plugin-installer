@@ -3,8 +3,8 @@ Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
 Donate link: http://www.wpfruits.com
 Tags: bulk plugin installer, multiple plugin installer, plugin centra, export plugins, import plugins
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.0.0
+Tested up to: 3.9
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,8 +55,15 @@ Click here to know more about how to use the plugin <a href="http://www.wpfruits
 
 
 == Changelog ==
-= Version 1.0.1 =
-First release - no changes
+
+= Version 1.1.0 =
+
+* Fixed few warning issues in plugin admin settings.
+* Compatible with the WordPress latest version (3.9).
+
+= Version 1.0.0 =
+
+* Initial release
 
 == Upgrade notice ==
 For better performance please upgrade quickly.
