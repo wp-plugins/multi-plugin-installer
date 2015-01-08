@@ -1,5 +1,5 @@
 === Multi Plugin Installer===
-Contributors: rahulbrilliant2004, tikendramaitry, Nishant Jain
+Contributors: rahulbrilliant2004, tikendramaitry
 Donate link: http://www.wpfruits.com
 Tags: bulk plugin installer, multiple plugin installer, plugin centra, export plugins, import plugins
 Requires at least: 3.0
