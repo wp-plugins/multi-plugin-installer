@@ -1,16 +1,26 @@
 <?php
+require_once('../../../wp-config.php');
+
+global $current_user;
+get_currentuserinfo();
+
+if ($current_user->user_level < 9 ) {
+	wp_die('You do not have permission to perform this action');
+}
+
 function mpi_download_file($file, $name, $mime_type='')
 {
+
+//including plugin class
+
  /*
  This function takes a path to a file to output ($file),  the filename that the browser will see ($name) and  the MIME type of the file ($mime_type, optional).
  */
  
  //Check the file premission
- if(!is_readable($file)) die('File not found or inaccessible!');
+ if(!is_readable($file)) wp_die('File not found or inaccessible!');
  
  $size = filesize($file);
- $name = rawurldecode($name);
- 
  /* Figure out the MIME type | Check in array */
  $known_mime_types=array(
  	"pdf" => "application/pdf",
@@ -109,10 +119,8 @@ die();
 }
 //Set the time out
 set_time_limit(0);
-
-//path to the file
-$file_path=$_REQUEST['filepath'].$_REQUEST['filename'];
-
+$mpi_upload_dir = MPIUPLOADDIR_PATH.'/mpi_logs/';
+$file_path      = $mpi_upload_dir.$_REQUEST['filename'];
 //Call the download function with file path,file name and file type
 mpi_download_file($file_path, ''.$_REQUEST['filename'].'', 'text/plain');
 ?>

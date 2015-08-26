@@ -325,13 +325,14 @@ class mpinstaller
 				$mpi_timedate = explode("_",$mpi_backupfilenm);
 				$mpi_timedate = str_replace('.mpi', "",$mpi_timedate[1]);
 				$mpi_timedate = date("m-d-Y , H:i:s", $mpi_timedate);
+				$mpi_full_filenm = 'files/'.$mpi_filenm;
 				?>
 					<tr>
 						<td class="sr_no"><?php echo $sr_count; ?></td>
 						<td class="mpi_filenm"><?php echo $mpi_filenm; ?></td>
 						<td class="mpi_filenm"><?php echo $mpi_timedate; ?></td>
-						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_filenm; ?>&filepath=<?php echo MPIUPLOADDIR_PATH.'/mpi_logs/files/'; ?>' ></a></td>
-						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_filenm; ?>&filepath=<?php echo MPIUPLOADDIR_PATH.'/mpi_logs/files/'; ?>' onClick="return mpi_delcfirm();" ></a></td>
+						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_full_filenm; ?>' ></a></td>
+						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_full_filenm; ?>' onClick="return mpi_delcfirm();" ></a></td>
 					</tr>
 				<?php
 				$sr_count++;
@@ -363,8 +364,8 @@ class mpinstaller
 						<td class="mpi_filenm"><?php echo $mpi_backupfilenm; ?></td>
 						<td class="mpi_timedt"><?php echo $mpi_timedate; ?></td>
 						<td class="mpi_timedt"><?php echo $mpi_filesize; ?></td>
-						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_backupfilenm; ?>&filepath=<?php echo MPIUPLOADDIR_PATH.'/mpi_logs/'; ?>' ></a></td>
-						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_backupfilenm; ?>&filepath=<?php echo MPIUPLOADDIR_PATH.'/mpi_logs/'; ?>' onClick="return mpi_delcfirm();" ></a></td>
+						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_backupfilenm; ?>' ></a></td>
+						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_backupfilenm; ?>' onClick="return mpi_delcfirm();" ></a></td>
 					</tr>
 				<?php
 				$sr_count++;

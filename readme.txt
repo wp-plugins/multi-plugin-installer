@@ -1,10 +1,10 @@
 === Multi Plugin Installer===
-Contributors: rahulbrilliant2004, tikendramaitry
+Contributors: tikendramaitry, rahulbrilliant2004
 Donate link: http://www.wpfruits.com
 Tags: bulk plugin installer, multiple plugin installer, plugin centra, export plugins, import plugins
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 1.1.0
+Tested up to: 4.3
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,10 @@ Click here to know more about how to use the plugin <a href="http://www.wpfruits
 
 
 == Changelog ==
+
+= Version 1.2.0 =
+
+* Compatible with the WordPress latest version (4.3).
 
 = Version 1.1.0 =
 

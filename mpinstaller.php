@@ -3,8 +3,8 @@
 Plugin Name:Multi Plugin Installer
 Plugin URI: http://www.wpfruits.com
 Description: This plugin can install multi plugins at once click
-Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
-Version: 1.1.0
+Author: tikendramaitry, rahulbrilliant2004
+Version: 1.2.0
 Author URI: http://www.wpfruits.com
 */
 //--------------------------------------------------------------------------
