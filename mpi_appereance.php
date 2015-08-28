@@ -11,6 +11,8 @@ $mpiObj = new mpinstaller();
 		}
 	?>
 	<div id="mpiblock">
+
+			
 		<div style="text-align:right;"><a href="javascript:void(0);" id="mpi-expand"><?php _e('Expand All','mpi') ?></a>&nbsp;<a href="javascript:void(0);" id="mpi-collapse"><?php _e('Collapse All','mpi') ?></a></div>
 		
 		<div><?php if($mpiObj->mpi_app_DirTesting()){} else{ _e('<div class="mpi_error">oops!!! Seems like the directory permission are not set right so some functionalities of plugin will not work.<br/>Please set the directory permission for the folder "uploads" inside "wp-content" directory to 777.</div>','mpi'); } ?></div>

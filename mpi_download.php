@@ -116,6 +116,7 @@ function mpi_download_file($file, $name, $mime_type='')
  die('Error - can not open file.');
  //die
 die();
+
 }
 //Set the time out
 set_time_limit(0);

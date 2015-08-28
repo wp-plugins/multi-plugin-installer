@@ -325,14 +325,20 @@ class mpinstaller
 				$mpi_timedate = explode("_",$mpi_backupfilenm);
 				$mpi_timedate = str_replace('.mpi', "",$mpi_timedate[1]);
 				$mpi_timedate = date("m-d-Y , H:i:s", $mpi_timedate);
-				$mpi_full_filenm = 'files/'.$mpi_filenm;
+				$mpi_full_filenm = $mpi_filenm;
+				$arr_params = array( 'dn' => 1, 'filename' => $mpi_full_filenm);
+				$download_path =  esc_url( add_query_arg( $arr_params ) );
+
+				$del_arr_params = array( 'dl' => 1, 'filename' => $mpi_full_filenm);
+				$delete_path =  esc_url( add_query_arg( $del_arr_params ) );
+
 				?>
 					<tr>
 						<td class="sr_no"><?php echo $sr_count; ?></td>
 						<td class="mpi_filenm"><?php echo $mpi_filenm; ?></td>
 						<td class="mpi_filenm"><?php echo $mpi_timedate; ?></td>
-						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_full_filenm; ?>' ></a></td>
-						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_full_filenm; ?>' onClick="return mpi_delcfirm();" ></a></td>
+						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo $download_path ;?>' ></a></td>
+						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo $delete_path ;?>' onClick="return mpi_delcfirm();" ></a></td>
 					</tr>
 				<?php
 				$sr_count++;
@@ -356,16 +362,23 @@ class mpinstaller
 				$mpi_timedate = str_replace('.zip', "",$mpi_timedate[1]);
 				$mpi_timedate = date("m-d-Y , H:i:s", $mpi_timedate);
 				$mpi_filesize = round(filesize($bfilename)/1024,2);
+				$mpi_full_filenm = $mpi_backupfilenm;
 				if($mpi_filesize > 1024){$mpi_filesize = round($mpi_filesize/1024,3)." MB";}
 				else{$mpi_filesize = $mpi_filesize." KB";}
+
+				$arr_params = array( 'dn' => 1, 'filename' => $mpi_full_filenm);
+				$download_path =  esc_url( add_query_arg( $arr_params ) );
+				$del_arr_params = array( 'dl' => 1, 'filename' => $mpi_full_filenm);
+				$delete_path =  esc_url( add_query_arg( $del_arr_params ) );
+				
 				?>
 					<tr>
 						<td class="sr_no"><?php echo $sr_count; ?>.</td>
 						<td class="mpi_filenm"><?php echo $mpi_backupfilenm; ?></td>
 						<td class="mpi_timedt"><?php echo $mpi_timedate; ?></td>
 						<td class="mpi_timedt"><?php echo $mpi_filesize; ?></td>
-						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo MPIPLUGIN_URL; ?>mpi_download.php?filename=<?php echo $mpi_backupfilenm; ?>' ></a></td>
-						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo MPIPLUGIN_URL; ?>mpi_delete.php?filename=<?php echo $mpi_backupfilenm; ?>' onClick="return mpi_delcfirm();" ></a></td>
+						<td class="mpi_dwnload"><a class="mpi_filedwn expfile" title="Download file" href='<?php echo $download_path; ?>' ></a></td>
+						<td class="mpi_del"><a class="mpi_trashdwn expfile" title="Delete file" href='<?php echo $delete_path; ?>' onClick="return mpi_delcfirm();" ></a></td>
 					</tr>
 				<?php
 				$sr_count++;
@@ -399,7 +412,8 @@ class mpinstaller
 						@rename(MPIUPLOADDIR_PATH.'/mpi_logs/files/tmp/plugins', MPIUPLOADDIR_PATH.'/mpi_logs/files/tmp/mpitemp');
 						@unlink($bk_newFilePath);
 						$pluginDir_src = MPIUPLOADDIR_PATH.'/mpi_logs/files/tmp/mpitemp/';
-						$this->mpi_copy_directory($pluginDir_src,'../wp-content/plugins/');
+
+						$this->mpi_copy_directory($pluginDir_src,MPI_WP_PLUGIN_DIR);
 						$this->mpi_delete_directory($pluginDir_src);
 						
 						_e('<b class="mpi_act">Plugins Installed Successfully.</b><br/>','mpi');
@@ -417,5 +431,143 @@ class mpinstaller
 			_e('<b style="color:#9B0707">Please Increase WordPress Media Upload Size Limit.</b>','mpi');
 		}
 	}
+
+
+	/*Function to start download after mpi_download.php bugs*/
+
+function mpi_download(){
+
+
+	global $current_user;
+		get_currentuserinfo();
+
+		if ($current_user->user_level < 9 ) {
+			wp_die('You do not have permission to perform this action');
+		}
+
+		$mpi_upload_dir = MPIUPLOADDIR_PATH.'/mpi_logs/';
+		$name= $_REQUEST['filename'];
+		$file      = $mpi_upload_dir.$_REQUEST['filename'];
+		
+		 //Check the file premission
+		 if(!is_readable($file)) wp_die('File not found or inaccessible!');
+
+		 $size = filesize($file);
+		 /* Figure out the MIME type | Check in array */
+		 $known_mime_types=array(
+		 	"pdf" => "application/pdf",
+		 	"txt" => "text/plain",
+		 	"html" => "text/html",
+		 	"htm" => "text/html",
+			"exe" => "application/octet-stream",
+			"zip" => "application/zip",
+			"doc" => "application/msword",
+			"xls" => "application/vnd.ms-excel",
+			"ppt" => "application/vnd.ms-powerpoint",
+			"gif" => "image/gif",
+			"png" => "image/png",
+			"jpeg"=> "image/jpg",
+			"jpg" =>  "image/jpg",
+			"php" => "text/plain",
+			"mpi" => "text/plain"
+		 );
+		 
+		 if($mime_type==''){
+			 $file_extension = strtolower(substr(strrchr($file,"."),1));
+			 if(array_key_exists($file_extension, $known_mime_types)){
+				$mime_type=$known_mime_types[$file_extension];
+			 } else {
+				$mime_type="application/force-download";
+			 };
+		 };
+		 
+		 //turn off output buffering to decrease cpu usage
+		 ob_start(); 
+		 
+		 // required for IE, otherwise Content-Disposition may be ignored
+		 if(ini_get('zlib.output_compression'))
+		  ini_set('zlib.output_compression', 'Off');
+		 
+		 header('Content-Type: ' . $mime_type);
+		 header('Content-Disposition: attachment; filename="'.$name.'"');
+		 header("Content-Transfer-Encoding: binary");
+		 header('Accept-Ranges: bytes');
+		 
+		 /* The three lines below basically make the 
+		    download non-cacheable */
+		 header("Cache-control: private");
+		 header('Pragma: private');
+		 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+		 
+		 // multipart-download and download resuming support
+		 if(isset($_SERVER['HTTP_RANGE']))
+		 {
+			list($a, $range) = explode("=",$_SERVER['HTTP_RANGE'],2);
+			list($range) = explode(",",$range,2);
+			list($range, $range_end) = explode("-", $range);
+			$range=intval($range);
+			if(!$range_end) {
+				$range_end=$size-1;
+			} else {
+				$range_end=intval($range_end);
+			}
+			/*
+			------------------------------------------------------------------------------------------------------
+			------------------------------------------------------------------------------------------------------
+		 	*/
+			$new_length = $range_end-$range+1;
+			header("HTTP/1.1 206 Partial Content");
+			header("Content-Length: $new_length");
+			header("Content-Range: bytes $range-$range_end/$size");
+		 } else {
+			$new_length=$size;
+			header("Content-Length: ".$size);
+		 }
+		 
+		 /* Will output the file itself */
+		 $chunksize = 1*(1024*1024); //you may want to change this
+		 $bytes_send = 0;
+		 if ($file = fopen($file, 'r'))
+		 {
+			if(isset($_SERVER['HTTP_RANGE']))
+			fseek($file, $range);
+		 
+			while(!feof($file) && 
+				(!connection_aborted()) && 
+				($bytes_send<$new_length)
+			     )
+			{
+				$buffer = fread($file, $chunksize);
+				print($buffer); //echo($buffer); // can also possible
+				flush();
+				$bytes_send += strlen($buffer);
+			}
+		 fclose($file);
+		 } else
+		 //If no permissiion
+		 die('Error - can not open file.');
+
 }
-?>
+
+function mpi_delete(){
+
+global $current_user;
+get_currentuserinfo();
+
+if ($current_user->user_level < 9 ) {
+	wp_die('You do not have permission to perform this action');
+}
+$mpi_upload_dir = MPIUPLOADDIR_PATH.'/mpi_logs/';
+$file_path      = $mpi_upload_dir.$_REQUEST['filename'];
+if(!is_readable($file_path)) wp_die('File not found or inaccessible!');
+
+if(@unlink($file_path))
+header('Location: ' . $_SERVER['HTTP_REFERER']);
+else
+wp_die('Error in deleting file');
+
+}
+
+
+
+}

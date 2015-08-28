@@ -3,7 +3,7 @@
 Plugin Name:Multi Plugin Installer
 Plugin URI: http://www.wpfruits.com
 Description: This plugin can install multi plugins at once click
-Author: tikendramaitry, rahulbrilliant2004
+Author: Nishant Jain, rahulbrilliant2004, tikendramaitry
 Version: 1.2.0
 Author URI: http://www.wpfruits.com
 */
@@ -20,6 +20,7 @@ $mpi_uploadDir = wp_upload_dir();
 define('MPIUPLOADDIR_PATH', $mpi_uploadDir['basedir']);
 define('MPIPLUGIN_PATH', plugin_dir_path(__FILE__));
 define('MPIPLUGIN_URL', plugin_dir_url(__FILE__));
+define('MPI_WP_PLUGIN_DIR',dirname(plugin_dir_path(__FILE__)));
 
 // ADD Styles and Script in head section
 add_action('admin_init', 'mpi_backend_scripts');
