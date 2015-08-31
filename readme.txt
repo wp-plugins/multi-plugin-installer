@@ -4,7 +4,7 @@ Donate link: http://www.wpfruits.com
 Tags: bulk plugin installer, multiple plugin installer, plugin centra, export plugins, import plugins
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.3.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,10 +55,6 @@ Click here to know more about how to use the plugin <a href="http://www.wpfruits
 
 
 == Changelog ==
-
-= Version 1.3.0 =
-
-* Security Exploit Fix
 
 = Version 1.2.0 =
 
